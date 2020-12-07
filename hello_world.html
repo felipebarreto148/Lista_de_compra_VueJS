@@ -10,14 +10,28 @@
 
 <body>
     <div id="shopping-list">
-        <h1>{{header}}</h1>
-        <input type="text" v-model="header">
+        <h1>{{header.toLocaleUpperCase()}}</h1> 
+        <input type="text" v-model="newItem" placeholder="Add an item">
+        <ul>
+            <li v-for="item in itens">{{item}}</li>
+        </ul>
+        <!-- <h1>{{header ? header : 'Welcome'}}</h1>  -->
+        <!-- foi utilizado um operador ternario, onde será verificado se o header está vazio,
+            caso nao esteja, aparecerá "welcome" no h1 -->
+        <!-- <input type="text" v-model="header"> 
+        A prop "v-model" altera o valor do header--> 
     </div>
     <script>
-        new Vue({
+        var shoppingList = new Vue({
             el: '#shopping-list',
             data: {
-                header: 'Hello World'
+                header: "Shopping List App",
+                newItem: '', 
+                itens: [
+                    '10 party hats',
+                    '2 board games',
+                    '20 cups',
+                ]
             }
         })
     </script>
