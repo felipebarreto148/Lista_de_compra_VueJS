@@ -1,2 +1,2 @@
 # estudosVue
-Repositório destinado para meus estudos no view.
+Repositório destinado para meus estudos no Vue.js
