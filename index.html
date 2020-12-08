@@ -21,7 +21,7 @@
         </div>
 
         <div v-if="state === 'edit'" class="add-item-form">
-            <input type="text" v-model="newItem" placeholder="Insira um novo item a lista" @keypress.enter="saveItem" />
+            <input type="text" v-model="newItem" placeholder="Insira um novo item" @keypress.enter="saveItem" />
             <button class="btn btn-primary" :disabled="newItem.length === 0" @click="saveItem">
                 Adicionar
             </button>
