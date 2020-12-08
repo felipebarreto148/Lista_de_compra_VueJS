@@ -1,38 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="shopping-list">
-        <div class="header">
-            <h1>{{header.toLocaleUpperCase()}}</h1>
-            <button v-if='state === "default"' class="btn btn-primary" @click='changeState("edit")'>
-                Novo item
-            </button>
-            <button v-else class="btn btn-cancel" @click='changeState("default")'>
-                Fechar lista
-            </button>
-        </div>
+      <div class="header">
+        <h1>{{header.toLocaleUpperCase()}}</h1>
+        <button
+          v-if='state === "default"'
+          class="btn btn-primary"
+          @click='changeState("edit")'
+        >
+          Novo item
+        </button>
+        <button v-else class="btn btn-cancel" @click='changeState("default")'>
+          Fechar lista
+        </button>
+      </div>
 
-        <div v-if="state === 'edit'" class="add-item-form">
-            <input type="text" v-model="newItem" placeholder="Insira um novo item" @keypress.enter="saveItem" />
-            <button class="btn btn-primary" :disabled="newItem.length === 0" @click="saveItem">
-                Adicionar
-            </button>
-        </div>
-        <ul>
-            <li v-for="item in reversedItems" :class="{strikeout: item.purchased}" @click="tooglePurchased(item)">{{ item.label }}</li>
-        </ul>
-        <p v-if="items.length === 0">Bem vindo! Está é sua lista de compras, para adicionar um novo item,<br> basta clicar no botão "Novo item".</p>
+      <div v-if="state === 'edit'" class="add-item-form">
+        <input
+          type="text"
+          v-model="newItem"
+          placeholder="Insira um novo item"
+          @keypress.enter="saveItem"
+        />
+        <button
+          class="btn btn-primary"
+          :disabled="newItem.length === 0"
+          @click="saveItem"
+        >
+          Adicionar
+        </button>
+      </div>
+      <ul>
+        <li
+          v-for="item in reversedItems"
+          :class="{strikeout: item.purchased}"
+          @click="tooglePurchased(item)"
+        >
+          {{ item.label }}
+        </li>
+      </ul>
+      <p v-if="items.length === 0">
+        Bem vindo! Está é sua lista de compras, para adicionar um novo item,<br />
+        basta clicar no botão "Novo item".
+      </p>
     </div>
     <script src="./main.js"></script>
-    <link rel="stylesheet" href="main.css">
-</body>
-
+    <link rel="stylesheet" href="main2.css" />
+  </body>
 </html>
